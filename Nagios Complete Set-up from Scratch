@@ -98,7 +98,8 @@ FINAL Nagios on ubuntu 18.04 final                       {{ https://linuxize.com
    40  cd /usr/local/nagios/etc/
    41  mkdir servers
    42  cd servers/
-   43  vi testserver1.cfg
+   43  vi testserver1.cfg   OR  /usr/local/nagios/etc/servers/your_monitored_server_host_name.cfg
+
 
 define host {
         use                             linux-server
@@ -114,12 +115,20 @@ define host {
 define service {
         use                             generic-service
         host_name                       remotemachine1
-        service_description             CPU load
+        service_description             CPU load                  ##{Or try:-  /dev/vda1 free space instea off CPU load}
         check_command                   check_nrpe!check_load
 }
 
+   44  nano /usr/local/nagios/etc/objects/contacts.cfg
+   ...
+define contact{
+        contact_name                    nagiosadmin             ; Short name of user
+        use                             generic-contact         ; Inherit default values from generic-contact template (defined above)
+        alias                           Nagios Admin            ; Full name of user
+        email                           your_email@your_domain.com        ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ******
+...
 
-   44  systemctl restart nagios
+   45  systemctl restart nagios
 -------------------------------------------------------------------------------------------------------------------------------
 
 # questions and Answere
