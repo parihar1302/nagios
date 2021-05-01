@@ -1,0 +1,33 @@
+#!/bin/sh
+
+apt update
+apt-get install wget build-essential apache2 php apache2 php apache2-mod-php7.0 php-gd libgd-dev sendmail unzip
+
+useradd nagios
+groupadd nagcmd
+usermod -a -G nagcmd nagios
+usermod -a -G nagios, nagcmd www-data
+
+cd ~
+wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.2.0.tar.gz
+tar -zxvf nagios-4.2.0.tar.gz
+cd nagios-4.2.0
+./configure --with-nagios-group=nagios --with-command-group=nagcmd
+make all
+make install
+make install-commandmode
+make install-init
+make install-config
+/usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/site-available/nagios.conf
+
+cp -R contrib//eventhandlers/ /usr/local/nagios/libexew
+chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
+
+cd ~
+wget https://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz
+tar -zxvf nagios-plugins-2.1.2.tar.gz
+cd nagios-plugins-2.1.2
+
+./configure --with-nagios-user=nagios --with-nagios-group=nagios --with-openssl
+make
+make install
