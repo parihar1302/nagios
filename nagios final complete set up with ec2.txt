@@ -23,6 +23,7 @@ FINAL Nagios on ubuntu 18.04 final
    16  make install-webconf
    17  systemctl enable nagios
    18  a2enmod rewrite cgi
+   19  make install-daemoninit               ##{instaling systemd unit file and also configur nagios service to start on boot}
    19  htpasswd -c -b /usr/local/nagios/etc/htpasswd.users nagiosadmin pass123       #{provinding id and password}
    20  systemctl restart apache2   #For Ubuntu
    21  cd ..
