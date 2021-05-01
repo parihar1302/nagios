@@ -41,7 +41,8 @@ FINAL Nagios on ubuntu 18.04 final                       {{ https://linuxize.com
    25  ./configure
    26  sudo make 
    27  sudo make install
-   28  systemctl start nagios          #{verfifing on url by typing public ipaddress/nagios, open "port 80" in Security Group}
+   28  systemctl start nagios             ##{verfifing on url by typing public ipaddress/nagios, open "port 80" in Security Group}
+   29  ls /usr/local/nagios/libexec/      ##{listing all available plug-in your server}
 
  #{NOTE:- HERE WE HAVE INSTALLED NAGIOS IN "HOSTSERVER" and we can monitor our hostserver/localmachine }
 
