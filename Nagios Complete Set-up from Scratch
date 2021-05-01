@@ -138,6 +138,10 @@ define service {
      ii.) Configure Nagios Server for monitoring Windows Machine.
      iii.) Add new host and service definitions for Windows machine monitoring.
      iv.) Restart the Nagios Service
+     
+* Q.) NRPE Plug-in  (Network Remote Plug-in Executor) use on which server?
+  A.) i.) Check_nrpe:- plugin that the Nagios server uses.
+     ii.) NRPE daemon:- which runs on the remote hosts and sends data to the Nagios server.
 
 
 
