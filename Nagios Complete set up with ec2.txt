@@ -34,7 +34,8 @@ FINAL Nagios on ubuntu 18.04 final                       {{ https://linuxize.com
    22  wget https://github.com/nagios-plugins/nagios-plugins/releases/download/release-2.2.1/nagios-plugins-2.2.1.tar.gz                #{nagios-plugin installation}
    23  tar -xf nagios-plugins-2.2.1.tar.gz       #{extracting file}
    24  cd nagios-plugins-2.2.1
-   24  ./tools/setup
+   24  pwd          ##{path:- /usr/src/nagios-plugins-release-2.2.1}
+   25  ./tools/setup
    25  ./configure
    26  sudo make 
    27  sudo make install
