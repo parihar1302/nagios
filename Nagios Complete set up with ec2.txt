@@ -1,4 +1,5 @@
-FINAL Nagios on ubuntu 18.04 final
+FINAL Nagios on ubuntu 18.04 final                       {{ https://linuxize.com/post/how-to-install-and-configure-nagios-on-ubuntu-18-04/ }}
+========================================
 
 # STEP1.) HOSTSERVER/localMACHINE- NAgios installation on HOST Machine
 
@@ -10,7 +11,7 @@ FINAL Nagios on ubuntu 18.04 final
        sudo make install-groups-users           ##{to create nagios user and nagios group}  {u might need to install make first}
     5  usermod -a -G nagios www-data            ##{adding apache user "222-data into nagios group"}
     6  cd ~
-    7  wget https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.3.4/nagios-4.3.4.tar.gz                  #{installing nagios4} 
+    7  wget https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.3.4/nagios-4.3.4.tar.gz                #{installing nagios4} 
     ##{Note:- latest Nagios version available here:- https://github.com/NagiosEnterprises/nagioscore/releases}
     8  tar -xf nagios-4.3.4.tar.gz           {extracting file}
     9  cd nagios-4.3.4
@@ -24,16 +25,20 @@ FINAL Nagios on ubuntu 18.04 final
    17  systemctl enable nagios
    18  a2enmod rewrite cgi
    19  make install-daemoninit               ##{instaling systemd unit file and also configur nagios service to start on boot}
-   19  htpasswd -c -b /usr/local/nagios/etc/htpasswd.users nagiosadmin pass123     ##{provinding id and password}{you can ignore hardcoding password,it will promt automatically}
+   19  htpasswd -c -b /usr/local/nagios/etc/htpasswd.users nagiosadmin pass123     ##{provinding id & password}{u can ignore hardcoded password along with -b,it'll auto-promt}}
    20  systemctl restart apache2   #For Ubuntu
-   20  sudo ufw allow Apache        ##{Configuring Firewall for Apache Port}
-   21  cd ..
+   20  sudo ufw allow Apache          ##{Configuring Firewall for Apache Port}  {https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/}
+   21  cd /usr/src/    
+          OR
+       cd ..
    22  wget https://github.com/nagios-plugins/nagios-plugins/releases/download/release-2.2.1/nagios-plugins-2.2.1.tar.gz                #{nagios-plugin installation}
    23  tar -xf nagios-plugins-2.2.1.tar.gz       #{extracting file}
    24  cd nagios-plugins-2.2.1
+   24  ./tools/setup
    25  ./configure
-   26  make install
-   27  systemctl start nagios          #{verfifing on url by typing ipadd/nagios AFTER opening "port 80"}
+   26  sudo make 
+   27  sudo make install
+   28  systemctl start nagios          #{verfifing on url by typing public ipaddress/nagios, open "port 80" in Security Group}
 
  #{NOTE:- HERE WE HAVE INSTALLED NAGIOS IN "HOSTSERVER" and we can monitor our hostserver/localmachine }
 
@@ -110,11 +115,10 @@ define service {
 
 
    44  systemctl restart nagios
-
 -------------------------------------------------------------------------------------------------------------------------------
 
 # questions and Answere
-
+==========================
 
 * nagios run on port 5666
 
