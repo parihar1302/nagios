@@ -6,6 +6,8 @@ FINAL Nagios on ubuntu 18.04 final                       {{ https://linuxize.com
     1  apt-get update
     2  sudo apt-get install -y build-essential libgd-dev openssl libssl-dev apache2 php libapache2-mod-php snmp libnet-snmp-perl gettext libmcrypt-dev libssl-dev
     3  sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.2
+           OR
+       sudo apt install libmcrypt-dev libssl-dev bc gawk dc build-essential libnet-snmp-perl gettext     
     4  useradd nagios
           OR
        sudo make install-groups-users           ##{to create nagios user and nagios group}  {u might need to install make first}
