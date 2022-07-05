@@ -133,10 +133,12 @@ define contact{
    45  systemctl restart nagios
 -------------------------------------------------------------------------------------------------------------------------------
 
-# questions and Answere
+
+## Auestions and Answere
 ==========================
 
-* nagios run on port 5666
+* Q.) Nagios runs on which port number ?
+  A.) 5666
 
 * a. Direct checks: Nagios server directly checks, remote Linux host for local resources like load, disk, swap usage etc. (as shown above)
 
@@ -155,7 +157,7 @@ define contact{
      ii.) NRPE daemon:- which runs on the remote hosts and sends data to the Nagios server.
 
 
-
+============================================================================================
 
 
 
