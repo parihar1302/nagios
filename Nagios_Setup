@@ -1,6 +1,12 @@
 FINAL Nagios on ubuntu 18.04 final                       {{ https://linuxize.com/post/how-to-install-and-configure-nagios-on-ubuntu-18-04/ }}
 ========================================
 
+## Updated :-
+For Nagios  :- https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/install-nagios-4-1-1-ubuntu-16-04.html       
+For Remote server monitoring  :- https://www.itzgeek.com/how-tos/linux/centos-how-tos/monitor-remote-linux-system-with-nagios-3.html     
+For Swap space error:- https://www.bogotobogo.com/DevOps/DevOps_Nagios_Infrastructure_Monitoring_Nagios-Remote-Plugin-Executor-NRPE.php
+
+
 # STEP1.) HOSTSERVER/localMACHINE- NAgios installation on HOST Machine
 
     1  apt-get update
